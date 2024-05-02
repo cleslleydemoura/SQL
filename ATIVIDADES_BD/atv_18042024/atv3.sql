@@ -9,12 +9,12 @@ CREATE TABLE cursinho.curso(
 );
 
 CREATE TABLE cursinho.curriculo(
-	cod_discp integer,
-	cod_curso integer,
+	codd integer,
+	codc integer,
 	obrigatoriedade character varying (3),
 	
-	foreign key (cod_discp) REFERENCES cursinho.disciplina (cod_discp),
-	foreign key (cod_curso) REFERENCES cursinho.curso (cod_curso)
+	foreign key (codd) REFERENCES cursinho.disciplina (cod_discp),
+	foreign key (codc) REFERENCES cursinho.curso (cod_curso)
 );
 
 INSERT INTO cursinho.disciplina (cod_discp, nome) VALUES (1, 'Cálculo I');
