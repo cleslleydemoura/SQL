@@ -7,7 +7,6 @@ INSERT INTO loja.marca (nome) VALUES ('Nestlé');
 INSERT INTO loja.marca (nome) VALUES ('Kopenhagen');
 INSERT INTO loja.marca (nome) VALUES ('Cacau Show');
 INSERT INTO loja.marca (nome) VALUES ('Lindt');
-
 SELECT * FROM loja.marca;
 
 CREATE TABLE loja.chocolates(
@@ -26,8 +25,8 @@ INSERT INTO loja.chocolates (nome, valor,codigo_marca) VALUES ('nhá benta', 7.0
 INSERT INTO loja.chocolates (nome, valor,codigo_marca) VALUES ('bombom maracujá', 2.50, 3);
 INSERT INTO loja.chocolates (nome, valor,codigo_marca) VALUES ('bombom cereja', 3.50, 3);
 INSERT INTO loja.chocolates (nome) VALUES ('bombom chocolate branco');
-
 INSERT INTO loja.chocolates (nome, valor) VALUES ('bombom pistache', 6.00);
+INSERT INTO loja.chocolates (nome) VALUES ('natal');
 
 SELECT * FROM loja.marca INNER JOIN loja.chocolates
 ON marca.codigo = loja.chocolates.codigo_marca;
@@ -53,8 +52,4 @@ SELECT * FROM loja.marca FULL OUTER JOIN loja.chocolates
 ON marca.codigo = loja.chocolates.codigo_marca
 WHERE loja.chocolates.codigo_marca IS NULL;
 
-INSERT INTO loja.chocolates (nome) VALUES ('natal');
-
-
-
-SELECT * FROM loja.chocolates;
+INSERT INTO loja.chocolates (nome, codigo_marca) VALUES ('bombom 55%', (SELECT codigo FROM loja.marca WHERE nome='Cacau Show'));
