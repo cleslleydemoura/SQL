@@ -1,0 +1,22 @@
+-- Manipulação de Dados TABELA CLIENTE.
+-- Implementar consultas SQL para realizar operações comuns do BD do aplicativo. Escolher uma tabela e enviar as consultas.  
+-- 1.   Adicionar uma nova linha.
+INSERT INTO clinica_vet.cliente (cpf_cliente, nome_cliente, telefone_cliente, endereco) VALUES ('111.111.111-11', 'Guilherme', 55550000, 'QNP 04 09');
+SELECT * FROM clinica_vet.cliente;
+-- 2.   Atualizar.
+UPDATE clinica_vet.cliente SET telefone_cliente = 99990000 WHERE cpf_cliente = '888.888.888-88';
+SELECT * FROM clinica_vet.cliente;
+-- 3.   Excluir.
+DELETE FROM clinica_vet.cliente WHERE cpf_cliente = '111.111.111-11';
+SELECT * FROM clinica_vet.cliente;
+-- 4.   Realizar uma consulta envolvendo 2 tabelas (explicar o que está pesquisando)
+SELECT c.nome_cliente, a.nome_animal
+FROM clinica_vet.cliente c
+JOIN clinica_vet.cliente_animal ca ON c.cpf_cliente = ca.codc
+JOIN clinica_vet.animal a ON ca.coda = a.cod_animal;
+-- 5.   Realizar uma consulta envolvendo mais de uma tabela e usando JOIN (explicar o que está pesquisando)
+SELECT c.nome_cliente, a.nome_animal
+FROM clinica_vet.cliente c
+JOIN clinica_vet.cliente_animal ca ON c.cpf_cliente = ca.codc
+JOIN clinica_vet.animal a ON ca.coda = a.cod_animal
+WHERE a.raca_animal = 'Pidão';

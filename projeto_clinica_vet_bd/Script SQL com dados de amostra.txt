@@ -1,0 +1,52 @@
+-- INSERT CLIENTE
+INSERT INTO clinica_vet.cliente (cpf_cliente, nome_cliente, telefone_cliente, endereco) VALUES ('888.888.888-88', 'Cleslley', 11110000, 'QNP 04 08');
+INSERT INTO clinica_vet.cliente (cpf_cliente, nome_cliente, telefone_cliente, endereco) VALUES ('444.444.444-44', 'Victor', 22220000, 'QNP 07 17');
+INSERT INTO clinica_vet.cliente (cpf_cliente, nome_cliente, telefone_cliente, endereco) VALUES ('666.666.666-66', 'Lara', 33330000, 'QNP 07 60');
+INSERT INTO clinica_vet.cliente (cpf_cliente, nome_cliente, telefone_cliente, endereco) VALUES ('999.999.999-99', 'Gabriel', 44440000, 'QNP 26 01');
+
+SELECT * FROM clinica_vet.cliente;
+
+-- INSERT ANIMAL
+INSERT INTO clinica_vet.animal (cod_animal, raca_animal, sexo, nome_animal, idade) VALUES (88888, 'Não sei se comento', 'M', 'Hércules', 03);
+INSERT INTO clinica_vet.animal (cod_animal, raca_animal, sexo, nome_animal, idade) VALUES (44444, 'Coitadolândia', 'F', 'Suzy', 03);
+INSERT INTO clinica_vet.animal (cod_animal, raca_animal, sexo, nome_animal, idade) VALUES (66666, 'Pidão', 'F', 'Beca', 12);
+INSERT INTO clinica_vet.animal (cod_animal, raca_animal, sexo, nome_animal, idade) VALUES (99999, 'Pug', 'F', 'Lucy', 05);
+
+SELECT * FROM clinica_vet.animal;
+
+-- INSERT CLIENTE_ANIMAL
+INSERT INTO clinica_vet.cliente_animal (codc, coda) VALUES ('888.888.888-88', 88888);
+INSERT INTO clinica_vet.cliente_animal (codc, coda) VALUES ('444.444.444-44', 44444);
+INSERT INTO clinica_vet.cliente_animal (codc, coda) VALUES ('666.666.666-66', 66666);
+INSERT INTO clinica_vet.cliente_animal (codc, coda) VALUES ('999.999.999-99', 99999);
+
+SELECT * FROM clinica_vet.cliente_animal;
+
+-- INSERT MEDICO VETERINÁRIO
+
+INSERT INTO clinica_vet.med_veterinario (cod_medico, crmv_medico, nome_medico, telefone_med, codc, coda) VALUES (011, '00100101', 'Carlos', 30300000, '666.666.666-66', 66666);
+INSERT INTO clinica_vet.med_veterinario (cod_medico, crmv_medico, nome_medico, telefone_med, codc, coda) VALUES (022, '00200202', 'Asaph', 20200000, '999.999.999-99', 99999);
+
+SELECT * FROM clinica_vet.med_veterinario;
+
+-- INSERT ENFERMIDADE
+INSERT INTO clinica_vet.enfermidade (cod_enfermidade, nome_enfermidade) VALUES (131, 'Gripe');
+INSERT INTO clinica_vet.enfermidade (cod_enfermidade, nome_enfermidade) VALUES (445, 'Ortite');
+INSERT INTO clinica_vet.enfermidade (cod_enfermidade, nome_enfermidade) VALUES (781, 'Pulga');
+INSERT INTO clinica_vet.enfermidade (cod_enfermidade, nome_enfermidade) VALUES (246, 'Carrapato');
+
+SELECT * FROM clinica_vet.enfermidade;
+
+-- INSERT relação POSSUI entre CLIENTE_ANIMAL e ENFERMIDADE
+
+INSERT INTO clinica_vet.possui (codc, coda, code) VALUES ('666.666.666-66', 66666, 445);
+INSERT INTO clinica_vet.possui (codc, coda, code) VALUES ('999.999.999-99', 99999, 131);
+
+SELECT * FROM clinica_vet.possui;
+
+-- INSERT relação TRATAMENTO entre MÉD. VETERINÁRIO e ENFERMIDADE
+
+INSERT INTO clinica_vet.tratamento (codm, code) VALUES (011, 445);
+INSERT INTO clinica_vet.tratamento (codm, code) VALUES (022, 131);
+
+SELECT * FROM clinica_vet.tratamento;
